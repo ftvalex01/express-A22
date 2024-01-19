@@ -7,7 +7,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var favicon = require('serve-favicon');
-
+var bicicletasAPIRouter = require('./routes/api/bicicletas');
 var app = express();
 
 // Configuracion en este caso de las vistas y el motor de las vistas(pug)
@@ -25,7 +25,7 @@ app.use(favicon(path.join(__dirname + '/public/images/favicon.ico')));
 // Rutas
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-
+app.use('/api/bicicletas', bicicletasAPIRouter); 
 // Manejador de errores
 
 app.use(function(req, res, next) {
@@ -45,3 +45,6 @@ app.use(function(err, req, res, next) {
 
 //export del server
 module.exports = app;
+
+
+
